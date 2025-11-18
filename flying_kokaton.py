@@ -19,7 +19,7 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        x = tmr % 3200 # 練習5 -> 9
+        x = tmr % 3200 
         screen.blit(bg_img, [-x, 0]) # 練習5
         screen.blit(bg_img2, [-x+1600, 0]) # 練習8
         screen.blit(bg_img, [-x+3200, 0]) # 練習9
@@ -36,10 +36,10 @@ def main():
         if key_lst[pg.K_LEFT]:
             sum_mv[0] -= 1
         if key_lst[pg.K_RIGHT]:
-            sum_mv[0] += 2 # 左移動(-1)を打ち消して右(+1)に進むため+2する
+            sum_mv[0] += 2 
 
-        kk_rct.move_ip(sum_mv) # move_ipを1回だけ呼ぶ（演習2）
-        screen.blit(kk_img, kk_rct) # 練習4 -> 10
+        kk_rct.move_ip(sum_mv) 
+        screen.blit(kk_img, kk_rct) 
         pg.display.update()
         tmr += 1        
         clock.tick(200) # 練習6
