@@ -24,16 +24,21 @@ def main():
         screen.blit(bg_img2, [-x+1600, 0]) # 練習8
         screen.blit(bg_img, [-x+3200, 0]) # 練習9
 
-         # 練習10
+         
         key_lst = pg.key.get_pressed()
+        sum_mv = [0, 0] 
+        sum_mv[0] = -1 
+
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0, -1))
+            sum_mv[1] -= 1
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, +1))
+            sum_mv[1] += 1
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1, 0))
+            sum_mv[0] -= 1
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((+1, 0))
+            sum_mv[0] += 2 # 左移動(-1)を打ち消して右(+1)に進むため+2する
+
+        kk_rct.move_ip(sum_mv) # move_ipを1回だけ呼ぶ（演習2）
         screen.blit(kk_img, kk_rct) # 練習4 -> 10
         pg.display.update()
         tmr += 1        
